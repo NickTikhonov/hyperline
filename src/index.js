@@ -88,7 +88,7 @@ export function decorateHyperLine(HyperLine) {
   }
 }
 
-export function decorateHyper(Hyper) {
+export function decorateTerm(Term, { notify }) {
   return class extends Component {
     static displayName() {
       return 'Hyper'
@@ -106,11 +106,11 @@ export function decorateHyper(Hyper) {
       const customChildren = (
         <div>
           {this.props.customChildren}
-          <HyperLine style={{ fontFamily: this.props.fontFamily }} />
+          <HyperLine notify={notify} style={{ fontFamily: this.props.fontFamily }} />
         </div>
       )
 
-      return <Hyper {...this.props} customChildren={customChildren} />
+      return <Term {...this.props} customChildren={customChildren} />
     }
   }
 }
